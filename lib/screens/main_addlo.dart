@@ -61,14 +61,16 @@ class _MianAddLocationState extends State<MianAddLocation> {
     i++;
     MarkerId markerId = MarkerId('id$i');
     Marker marker = Marker(
-        markerId: markerId,
-        position: LatLng(
-          double.parse(
-            positionModel.lat.trim(),
-          ),
-          double.parse(positionModel.lng),
+      infoWindow: InfoWindow(title: positionModel.name, snippet: 'จำนวน = '),
+      markerId: markerId,
+      position: LatLng(
+        double.parse(
+          positionModel.lat.trim(),
         ),
-        icon: BitmapDescriptor.defaultMarkerWithHue(240));
+        double.parse(positionModel.lng),
+      ),
+      icon: BitmapDescriptor.defaultMarkerWithHue(240),
+    );
     mapMarkers[markerId] = marker;
   }
 
